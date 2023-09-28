@@ -9,3 +9,15 @@ HTTP tunnel is first defined in rfc in progress referenced by [rfc2616](https://
 The draft specifies that the CONNECT method follows the same HTTP/1.x protocol. All the initial setup is done like a normal HTTP call would. Below, I've made a high level UML Sequence diagram to show simply how it works (without auth, ideal condition).
 
 ![High Level Sequence Diagram of HTTP Tunneling](./images/HTTP%20Proxy%20High%20Level%20Sequence%20Diagram.png)
+
+And that's basically it. The only other condition is where the host needed authentication or required extra data, the host could return 4xx.
+
+## Terowongan alpha.0
+
+The protocol used in terowongan will be exactly the same as how HTTP tunnel (explained above) works. Though there's a limitation on this alpha version,
+
+1. Host will only use listen address as the authoritative address for CONNECT method host
+2. Host will not validate if it has a valid client connected to the Host address
+3. Host will take any CONNECT, as there will not be authentication
+
+Basically the Host on this version will act just like a proxy. That's all.
